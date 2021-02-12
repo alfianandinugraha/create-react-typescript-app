@@ -1,5 +1,6 @@
-import React, { ReactElement } from 'react'
+import React, { ReactElement, useEffect } from 'react'
 import messageConsole from '@/utils/logging'
+import useCounter from '@/hooks/useCounter'
 
 interface ButtonProps {
   children: string
@@ -7,12 +8,18 @@ interface ButtonProps {
 }
 
 const Button = ({ variant, children }: ButtonProps): ReactElement => {
-  const showMessage = () => messageConsole()
+  const [count, setCount] = useCounter(5)
+  const buttonClickHandler = () => {
+    messageConsole()
+    setCount('+', 10)
+  }
+
+  useEffect(() => console.log(count), [count])
 
   return (
     <button
       type="submit"
-      onClick={showMessage}
+      onClick={buttonClickHandler}
       className={variant}
       id="hellow"
       data-id="hehe"
