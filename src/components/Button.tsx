@@ -1,16 +1,25 @@
 import React, { ReactElement } from 'react'
-import { messageConsole } from '@/utils/logging'
+import messageConsole from '@/utils/logging'
 
 interface ButtonProps {
-  children: any
+  children: string
+  variant: string
 }
 
-export default function Button(props: ButtonProps): ReactElement {
+const Button = ({ variant, children }: ButtonProps): ReactElement => {
   const showMessage = () => messageConsole()
 
   return (
-    <button onClick={showMessage}>
-      {props.children}
+    <button
+      type="submit"
+      onClick={showMessage}
+      className={variant}
+      id="hellow"
+      data-id="hehe"
+    >
+      {children}
     </button>
   )
 }
+
+export default Button
