@@ -20,7 +20,8 @@ const Button = ({ variant, children }: ButtonProps): ReactElement => {
       id="hellow"
       data-id="hehe"
     >
-      {children}
+      <span>{children} </span>
+      <span>: {count}</span>
     </button>
   )
 }
