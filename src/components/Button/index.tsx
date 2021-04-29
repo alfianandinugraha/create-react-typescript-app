@@ -19,9 +19,10 @@ const Button = ({ variant, children }: ButtonProps): ReactElement => {
       className={variant}
       id="hellow"
       data-id="hehe"
+      data-testid="button"
     >
-      <span>{children} </span>
-      <span>: {count}</span>
+      <span>{children} : </span>
+      <span data-testid="count">{count}</span>
     </button>
   )
 }
