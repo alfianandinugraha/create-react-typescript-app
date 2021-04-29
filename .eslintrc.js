@@ -15,6 +15,7 @@ const config = {
     'plugin:react/recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:prettier/recommended',
+    'prettier/react',
   ],
   parserOptions: {
     ecmaFeatures: {
