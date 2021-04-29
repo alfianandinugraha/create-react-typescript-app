@@ -1,4 +1,6 @@
-const { NODE_ENV } = require('dotenv').config().parsed
+require('dotenv').config()
+
+const { NODE_ENV } = process.env
 
 const config = {
   root: true,
@@ -20,11 +22,11 @@ const config = {
     },
     ecmaVersion: 12,
     sourceType: 'module',
-    project: './tsconfig.eslint.json',
+    project: ['./tsconfig.eslint.json'],
   },
   plugins: ['react', '@typescript-eslint', 'prettier'],
   rules: {
-    'no-console': [NODE_ENV === 'dev' ? 'off' : 'error'],
+    'no-console': NODE_ENV === 'development' ? 'off' : 'error',
     'import/newline-after-import': 'error',
     quotes: ['error', 'single'],
     'prettier/prettier': [
@@ -49,6 +51,7 @@ const config = {
     '@typescript-eslint/no-var-requires': ['off'],
     'import/order': 'error',
     'import/first': 'error',
+    'import/no-unresolved': 'off',
   },
 }
 
