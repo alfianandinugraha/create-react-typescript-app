@@ -1,11 +1,7 @@
 import React, { ReactElement, useEffect } from 'react'
 import messageConsole from '@/utils/logging'
 import useCounter from '@/hooks/useCounter'
-
-interface ButtonProps {
-  children: string
-  variant: string
-}
+import { ButtonProps } from 'ButtonTypes'
 
 const Button = ({ variant, children }: ButtonProps): ReactElement => {
   const [count, setCount] = useCounter(5)
