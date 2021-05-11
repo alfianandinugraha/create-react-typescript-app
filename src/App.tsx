@@ -1,5 +1,6 @@
 import React, { ReactElement } from 'react'
 import useTitlePage from '@/hooks/useTitlePage'
+import Ecosystem from '@/components/Ecosystem'
 import '@/style.css'
 
 const App = (): ReactElement => {
@@ -20,56 +21,7 @@ const App = (): ReactElement => {
           </a>{' '}
           App
         </h1>
-        <section className="ecosystem">
-          <h2>Ecosystem</h2>
-          <ol>
-            <li>
-              <a
-                href="https://reactrouter.com/web/guides/quick-start"
-                target="_blank"
-                rel="noreferrer"
-              >
-                react-router
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://github.com/pmndrs/jotai"
-                target="_blank"
-                rel="noreferrer"
-              >
-                jotai
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://reactcommunity.org/react-transition-group/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                react-transition-group
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://testing-library.com/docs/react-testing-library/intro/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                testing-library
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi"
-                target="_blank"
-                rel="noreferrer"
-              >
-                React Developer Tools
-              </a>
-            </li>
-          </ol>
-        </section>
+        <Ecosystem />
         <section className="contribute">
           <h2>Contribute</h2>
           <p>
