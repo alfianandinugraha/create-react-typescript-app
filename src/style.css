@@ -1,1 +1,91 @@
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
 
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+body,
+ol,
+ul {
+  background-color: #282c34;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+h1,
+p,
+a,
+h2 {
+  color: white;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial,
+    sans-serif, Apple Color Emoji, Segoe UI Emoji !important;
+  line-height: 1.75;
+}
+
+a {
+  color: #61dafb;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h1 {
+  font-size: 2rem !important;
+  font-weight: bold !important;
+}
+
+.blue {
+  color: #61dafb;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
+
+.react-logo {
+  animation: rotate 10s infinite linear;
+  margin: 0 auto;
+}
+
+.heading {
+  text-align: center;
+}
+
+.ecosystem h2,
+.contribute h2,
+.contribute p {
+  text-align: center;
+}
+
+.ecosystem ol {
+  display: flex;
+  justify-content: center;
+}
+
+.ecosystem ol li:not(:last-child) {
+  margin-right: 2rem;
+}
