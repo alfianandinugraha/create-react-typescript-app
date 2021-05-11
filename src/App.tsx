@@ -5,7 +5,7 @@ const App = (): ReactElement => (
   <main className="container">
     <section className="wrapper">
       <img src="/logo192.png" alt="react icon" className="react-logo" />
-      <h1 className="heading">
+      <h1 className="heading" data-testid="title">
         Create React{' '}
         <a
           target="_blank"
