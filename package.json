@@ -19,7 +19,7 @@
     "build": "react-app-rewired build",
     "test": "react-app-rewired test",
     "eject": "react-scripts eject",
-    "lint": "eslint src/**/*.ts src/**/*.tsx --fix"
+    "lint": "eslint src/**/*.ts src/**/*.tsx *.js --ignore-path .gitignore --fix"
   },
   "eslintConfig": {
     "extends": [
