@@ -30,13 +30,11 @@ const App = (): ReactElement => {
             status: 'success',
           })
         })
-        .catch((err) => {
+        .catch(() => {
           setAlert({
             message: 'Failed to copy, please use modern browser',
             status: 'error',
           })
-          console.error('failed to copy clone command')
-          console.error(err)
         })
     } catch {
       setAlert({
