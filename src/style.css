@@ -58,6 +58,7 @@ h1 {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  padding: 2rem;
 }
 
 .wrapper {
@@ -75,17 +76,36 @@ h1 {
   text-align: center;
 }
 
+.contribute {
+  margin-top: 2rem;
+  margin-bottom: 5rem;
+}
+
 .ecosystem h2,
 .contribute h2,
 .contribute p {
   text-align: center;
 }
 
-.ecosystem ol {
-  display: flex;
-  justify-content: center;
+.ecosystem ol li:not(:last-child) {
+  margin-bottom: 1rem;
 }
 
-.ecosystem ol li:not(:last-child) {
-  margin-right: 2rem;
+.ecosystem ol li {
+  text-align: center;
+}
+
+@media screen and (min-width: 800px) {
+  .contribute {
+    margin: 0;
+  }
+
+  .ecosystem ol {
+    display: flex;
+    justify-content: center;
+  }
+
+  .ecosystem ol li:not(:last-child) {
+    margin: 0 1rem 0 0;
+  }
 }
