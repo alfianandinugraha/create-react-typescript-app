@@ -1,23 +1,71 @@
-import React, { ReactElement } from 'react'
+import React, { ReactElement, useEffect, useState } from 'react'
 import useTitlePage from '@/hooks/useTitlePage'
 import Ecosystem from '@/components/Ecosystem'
 import '@/style.css'
+
+interface AlertProps {
+  message: string
+  status: 'success' | 'error'
+}
 
 const CLONE_COMMAND =
   'git clone https://github.com/alfianandinugraha/create-react-typescript-app.git'
 
 const App = (): ReactElement => {
   useTitlePage('React Typescript App')
+  const [isAlertShow, setIsAlertShow] = useState(false)
+  const [alert, setAlert] = useState<AlertProps>({
+    message: 'Failed to copy, please use modern browser',
+    status: 'error',
+  })
 
   const copyCloneCommand = () => {
-    navigator.clipboard.writeText(CLONE_COMMAND).catch((err) => {
-      console.error('failed to copy clone command')
-      console.error(err)
-    })
+    setIsAlertShow(true)
+    try {
+      navigator.clipboard
+        .writeText(CLONE_COMMAND)
+        .then(() => {
+          setAlert({
+            message: 'Command copied ! 🚀🚀🚀',
+            status: 'success',
+          })
+        })
+        .catch((err) => {
+          setAlert({
+            message: 'Failed to copy, please use modern browser',
+            status: 'error',
+          })
+          console.error('failed to copy clone command')
+          console.error(err)
+        })
+    } catch {
+      setAlert({
+        message: 'Failed to copy, please use modern browser',
+        status: 'error',
+      })
+    }
   }
+
+  useEffect(() => {
+    if (!isAlertShow) return
+
+    const interval = setInterval(() => {
+      setIsAlertShow(false)
+    }, 2000)
+
+    // eslint-disable-next-line consistent-return
+    return () => {
+      clearInterval(interval)
+    }
+  }, [isAlertShow])
 
   return (
     <main className="container">
+      {isAlertShow && (
+        <section className={`alert alert--${alert.status}`}>
+          <p>{alert.message}</p>
+        </section>
+      )}
       <section className="wrapper">
         <img src="/logo192.png" alt="react icon" className="react-logo" />
         <h1 className="heading" data-testid="title">

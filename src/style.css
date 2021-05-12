@@ -8,6 +8,16 @@
   }
 }
 
+@keyframes alertShow {
+  from {
+    right: -350px;
+  }
+
+  to {
+    right: 1rem;
+  }
+}
+
 body,
 ol,
 ul {
@@ -60,6 +70,32 @@ h1 {
   align-items: center;
   height: 100vh;
   padding: 2rem;
+}
+
+.alert {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.5rem 2rem;
+  background-color: white;
+  border-radius: 5px;
+  z-index: 999;
+  animation: alertShow 500ms linear;
+  max-width: 230px;
+}
+
+.alert p {
+  margin: 0;
+  padding: 0;
+  color: #1a1d22;
+}
+
+.alert--success {
+  border-left: 10px solid #61dafb;
+}
+
+.alert--error {
+  border-left: 10px solid #f05454;
 }
 
 .wrapper {
