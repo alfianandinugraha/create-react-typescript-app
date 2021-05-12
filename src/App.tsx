@@ -3,8 +3,18 @@ import useTitlePage from '@/hooks/useTitlePage'
 import Ecosystem from '@/components/Ecosystem'
 import '@/style.css'
 
+const CLONE_COMMAND =
+  'git clone https://github.com/alfianandinugraha/create-react-typescript-app.git'
+
 const App = (): ReactElement => {
   useTitlePage('React Typescript App')
+
+  const copyCloneCommand = () => {
+    navigator.clipboard.writeText(CLONE_COMMAND).catch((err) => {
+      console.error('failed to copy clone command')
+      console.error(err)
+    })
+  }
 
   return (
     <main className="container">
@@ -22,11 +32,10 @@ const App = (): ReactElement => {
           App
         </h1>
         <section className="installation">
-          <code>
-            git clone
-            https://github.com/alfianandinugraha/create-react-typescript-app.git
-          </code>
-          <button type="button">Copy</button>
+          <code>{CLONE_COMMAND}</code>
+          <button type="button" onClick={copyCloneCommand}>
+            Copy
+          </button>
         </section>
         <Ecosystem />
         <section className="contribute">
