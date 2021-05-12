@@ -140,6 +140,13 @@ h1 {
   cursor: pointer;
   border: none;
   margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+
+.clipboard-icon {
+  width: 16px;
+  margin-right: 0.5rem;
 }
 
 .contribute {
@@ -165,6 +172,7 @@ h1 {
   .installation {
     max-width: none;
     margin: 0;
+    align-items: center;
   }
 }
 

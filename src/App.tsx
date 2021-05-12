@@ -82,7 +82,12 @@ const App = (): ReactElement => {
         <section className="installation">
           <code>{CLONE_COMMAND}</code>
           <button type="button" onClick={copyCloneCommand}>
-            Copy
+            <img
+              src="./copy-svgrepo-com.svg"
+              alt="clipboard icon"
+              className="clipboard-icon"
+            />
+            <span>Copy</span>
           </button>
         </section>
         <Ecosystem />
