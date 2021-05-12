@@ -28,7 +28,8 @@ ul {
 h1,
 p,
 a,
-h2 {
+h2,
+code {
   color: white;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial,
     sans-serif, Apple Color Emoji, Segoe UI Emoji !important;
@@ -76,6 +77,35 @@ h1 {
   text-align: center;
 }
 
+.installation {
+  padding: 1rem;
+  background-color: #1a1d22;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  max-width: 250px;
+  margin: 0 auto 2rem auto;
+}
+
+.installation code {
+  margin: 0 0 1rem 0;
+  padding: 0;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+  font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono,
+    DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif !important;
+}
+
+.installation button {
+  padding: 0.5rem;
+  background-color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
+  margin-left: auto;
+}
+
 .contribute {
   margin-top: 2rem;
   margin-bottom: 5rem;
@@ -95,6 +125,13 @@ h1 {
   text-align: center;
 }
 
+@media screen and (min-width: 500px) {
+  .installation {
+    max-width: none;
+    margin: 0;
+  }
+}
+
 @media screen and (min-width: 800px) {
   .contribute {
     margin: 0;
@@ -107,5 +144,19 @@ h1 {
 
   .ecosystem ol li:not(:last-child) {
     margin: 0 1rem 0 0;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .installation {
+    flex-direction: row;
+  }
+
+  .installation code {
+    margin: 0;
+  }
+
+  .installation button {
+    margin-left: 1rem !important;
   }
 }

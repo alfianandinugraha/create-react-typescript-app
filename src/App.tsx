@@ -21,6 +21,13 @@ const App = (): ReactElement => {
           </a>{' '}
           App
         </h1>
+        <section className="installation">
+          <code>
+            git clone
+            https://github.com/alfianandinugraha/create-react-typescript-app.git
+          </code>
+          <button type="button">Copy</button>
+        </section>
         <Ecosystem />
         <section className="contribute">
           <h2>Contribute</h2>
