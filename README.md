@@ -1,3 +1,5 @@
+![alt text](https://res.cloudinary.com/alfianandidev/image/upload/v1620801944/create-react-typescript-app_mc7nll.gif 'Create React Typescript App - starter screen')
+
 # Create React Typescript App 🚀
 
 Combine [Create React App](https://github.com/facebook/create-react-app) with [Typescript](https://www.typescriptlang.org/) and [Eslint](https://eslint.org/)
