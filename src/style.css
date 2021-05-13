@@ -170,6 +170,27 @@ h1 {
   margin: 0 auto 2rem auto;
 }
 
+.installation .menu-bar {
+  display: flex;
+  margin: auto;
+  margin-bottom: 0.5rem;
+}
+
+.installation .menu-bar__item {
+  color: white;
+  cursor: pointer;
+  display: block;
+}
+
+.installation .menu-bar__item.menu-bar__item--active {
+  color: #61dafb;
+  font-weight: bold;
+}
+
+.installation .menu-bar__item:not(:last-child) {
+  margin-right: 1rem;
+}
+
 .installation code {
   margin: 0 0 1rem 0;
   padding: 0;

@@ -8,6 +8,13 @@ interface AlertProps {
   status: 'success' | 'error'
 }
 
+interface CloneCommandProps {
+  command: string
+  isActive: boolean
+  id: string
+  type: 'HTTPS' | 'SSH'
+}
+
 interface ScriptProps {
   command: {
     yarn?: string
@@ -63,12 +70,25 @@ const scripts: ScriptProps[] = [
   },
 ]
 
-const CLONE_COMMAND =
-  'git clone https://github.com/alfianandinugraha/create-react-typescript-app.git'
-
 const App = (): ReactElement => {
   useTitlePage('React Typescript App')
   const [isAlertShow, setIsAlertShow] = useState(false)
+  const [cloneCommands, setCloneCommands] = useState<CloneCommandProps[]>([
+    {
+      id: Math.random().toString(),
+      type: 'HTTPS',
+      command:
+        'git clone https://github.com/alfianandinugraha/create-react-typescript-app.git',
+      isActive: true,
+    },
+    {
+      id: Math.random().toString(),
+      type: 'SSH',
+      command:
+        'git clone git@github.com:alfianandinugraha/create-react-typescript-app.git',
+      isActive: false,
+    },
+  ])
   const [alert, setAlert] = useState<AlertProps>({
     message: 'Failed to copy, please use modern browser',
     status: 'error',
@@ -98,6 +118,18 @@ const App = (): ReactElement => {
       })
     }
   }
+
+  const switchCloneCommand = (type: CloneCommandProps['type']) => {
+    const newCloneCommands = cloneCommands.map((cloneCommand) => ({
+      ...cloneCommand,
+      isActive: type === cloneCommand.type,
+    }))
+
+    setCloneCommands(newCloneCommands)
+  }
+
+  const getActiveCloneCommand = () =>
+    cloneCommands.filter((command) => command.isActive)[0]
 
   useEffect(() => {
     if (!isAlertShow) return
@@ -186,12 +218,26 @@ const App = (): ReactElement => {
           </section>
         </section>
         <section className="installation">
+          <section className="menu-bar">
+            {cloneCommands.map((command) => (
+              <span
+                className={`menu-bar__item ${
+                  command.isActive ? 'menu-bar__item--active' : ''
+                }`}
+                onClick={() => switchCloneCommand(command.type)}
+                aria-hidden="true"
+                key={command.id}
+              >
+                {command.type}
+              </span>
+            ))}
+          </section>
           <section className="code-block">
             <code
-              onClick={() => writeClipboard(CLONE_COMMAND)}
+              onClick={() => writeClipboard(getActiveCloneCommand().command)}
               aria-hidden="true"
             >
-              {CLONE_COMMAND}
+              {getActiveCloneCommand().command}
             </code>
           </section>
         </section>
