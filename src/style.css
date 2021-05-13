@@ -114,6 +114,20 @@ h1 {
   text-align: center;
 }
 
+.icon-group {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.icon-group img {
+  width: 36px;
+}
+
+.icon-group img:not(:last-child) {
+  margin-right: 1rem;
+}
+
 .installation {
   max-width: 250px;
   display: flex;

@@ -121,6 +121,11 @@ const App = (): ReactElement => {
       )}
       <section className="wrapper">
         <img src="/logo192.png" alt="react icon" className="react-logo" />
+        <div className="icon-group">
+          <img src="/typescript.svg" alt="typescipt icon" />
+          <img src="/eslint.svg" alt="eslint icon" />
+          <img src="/prettier.png" alt="prettier icon" />
+        </div>
         <h1 className="heading" data-testid="title">
           Create React{' '}
           <a
