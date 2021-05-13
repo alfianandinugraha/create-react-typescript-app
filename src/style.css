@@ -382,6 +382,6 @@ h1 {
   }
 
   .script__item .code-block {
-    justify-content: right;
+    justify-content: left;
   }
 }
