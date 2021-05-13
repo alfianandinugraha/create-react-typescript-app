@@ -232,6 +232,23 @@ const App = (): ReactElement => {
               </span>
             ))}
           </section>
+          <section className="input-project">
+            <input
+              type="text"
+              className="input-project-name"
+              placeholder="Project name (optional)"
+            />
+            <div className="radio-group">
+              <label htmlFor="yarn">
+                <input type="radio" id="yarn" name="package" />
+                <span>Yarn</span>
+              </label>
+              <label htmlFor="npm">
+                <input type="radio" id="npm" name="package" />
+                <span>NPM</span>
+              </label>
+            </div>
+          </section>
           <section className="code-block">
             <code
               onClick={() => writeClipboard(getActiveCloneCommand().command)}

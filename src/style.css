@@ -168,6 +168,7 @@ h1 {
   display: flex;
   flex-direction: column;
   margin: 0 auto 2rem auto;
+  position: relative;
 }
 
 .installation .menu-bar {
@@ -189,6 +190,31 @@ h1 {
 
 .installation .menu-bar__item:not(:last-child) {
   margin-right: 1rem;
+}
+
+.installation .input-project label span {
+  color: white;
+}
+
+.installation .input-project .input-project-name {
+  padding: 1rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-bottom: 0.5rem;
+  width: 100%;
+  box-sizing: border-box;
+  color: #1a1d22;
+}
+
+.installation .input-project .radio-group {
+  margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.installation .input-project .radio-group label:not(:last-child) {
+  margin-right: 0.5rem;
 }
 
 .installation code {
@@ -305,6 +331,10 @@ h1 {
     max-width: none;
     margin: 0;
     align-items: center;
+  }
+
+  .installation .input-project .input-project-name {
+    width: 350px;
   }
 }
 
