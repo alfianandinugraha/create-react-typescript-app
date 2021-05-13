@@ -148,6 +148,43 @@ const App = (): ReactElement => {
           </a>{' '}
           App
         </h1>
+        <section className="stat">
+          <section className="stat__item">
+            <a
+              className="github-button"
+              href="https://github.com/alfianandinugraha/create-react-typescript-app"
+              data-icon="octicon-star"
+              data-size="large"
+              data-show-count="true"
+              aria-label="Star alfianandinugraha/create-react-typescript-app on GitHub"
+            >
+              Star
+            </a>
+          </section>
+          <section className="stat__item">
+            <a
+              className="github-button"
+              href="https://github.com/alfianandinugraha/create-react-typescript-app/fork"
+              data-icon="octicon-repo-forked"
+              data-size="large"
+              data-show-count="true"
+              aria-label="Fork alfianandinugraha/create-react-typescript-app on GitHub"
+            >
+              Fork
+            </a>
+          </section>
+          <section className="stat__item">
+            <a
+              className="github-button"
+              href="https://github.com/alfianandinugraha/create-react-typescript-app/archive/HEAD.zip"
+              data-icon="octicon-download"
+              data-size="large"
+              aria-label="Download alfianandinugraha/create-react-typescript-app on GitHub"
+            >
+              Download
+            </a>
+          </section>
+        </section>
         <section className="installation">
           <section className="code-block">
             <code
