@@ -74,7 +74,6 @@ const App = (): ReactElement => {
   useTitlePage('React Typescript App')
   const [isAlertShow, setIsAlertShow] = useState(false)
   const [inputProject, setInputProject] = useState('')
-  const [selectPackageManager, setSelectPackageManager] = useState('')
   const [cloneCommands, setCloneCommands] = useState<CloneCommandProps[]>([
     {
       id: Math.random().toString(),
@@ -141,13 +140,6 @@ const App = (): ReactElement => {
 
     result += ` "${inputProject}"`
 
-    if (selectPackageManager === 'yarn') {
-      result += ` && cd "${inputProject}" && yarn install && yarn run start`
-    }
-
-    if (selectPackageManager === 'npm') {
-      result += ` && cd "${inputProject}" && npm install && npm run start`
-    }
     return result
   }
 
@@ -259,26 +251,6 @@ const App = (): ReactElement => {
               placeholder="Project name (optional)"
               onChange={inputProjectHandler}
             />
-            {inputProject && (
-              <div className="radio-group">
-                <label
-                  htmlFor="yarn"
-                  onClick={() => setSelectPackageManager('yarn')}
-                  aria-hidden="true"
-                >
-                  <input type="radio" id="yarn" name="package" />
-                  <span>Yarn</span>
-                </label>
-                <label
-                  htmlFor="npm"
-                  onClick={() => setSelectPackageManager('npm')}
-                  aria-hidden="true"
-                >
-                  <input type="radio" id="npm" name="package" />
-                  <span>NPM</span>
-                </label>
-              </div>
-            )}
           </section>
           <section className="code-block">
             <code

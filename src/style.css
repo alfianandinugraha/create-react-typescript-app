@@ -201,20 +201,10 @@ h1 {
   border: none;
   border-radius: 5px;
   font-size: 16px;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
   width: 100%;
   box-sizing: border-box;
   color: #1a1d22;
-}
-
-.installation .input-project .radio-group {
-  margin-bottom: 0.5rem;
-  display: flex;
-  justify-content: center;
-}
-
-.installation .input-project .radio-group label:not(:last-child) {
-  margin-right: 0.5rem;
 }
 
 .installation code {
