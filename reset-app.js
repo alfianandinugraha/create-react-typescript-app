@@ -56,6 +56,24 @@ const deleteUnusedFolder = () => {
   }
 }
 
+const removeExternalScript = () => {
+  const indexHTMLPath = `${__dirname}/public/index.html`
+  try {
+    console.log('⏳ remove external script...')
+    const indexHTML = fs.readFileSync(indexHTMLPath, {
+      encoding: 'utf-8',
+    })
+    const newIndexHTML = indexHTML.replace(
+      '<script async defer src="https://buttons.github.io/buttons.js"></script>',
+      '<!-- script -->'
+    )
+    fs.writeFileSync(indexHTMLPath, newIndexHTML)
+    console.log('✅ remove external script successfully\n')
+  } catch (err) {
+    console.log(err)
+  }
+}
+
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
@@ -74,6 +92,7 @@ rl.question('Are you sure to delete all initial files ? [Y/N] : ', (answer) => {
   updateAppTsx()
   deleteUnusedFiles()
   deleteUnusedFolder()
+  removeExternalScript()
   console.log('Remove initial files successfully, Happy coding ✈️')
   console.log('To cancel the operation use command `git checkout -- src\\`\n')
   console.log(
