@@ -19,7 +19,8 @@
     "build": "react-app-rewired build",
     "test": "react-app-rewired test",
     "eject": "react-scripts eject",
-    "lint": "eslint src/**/*.ts src/**/*.tsx *.js --ignore-path .gitignore --fix"
+    "lint": "eslint src/**/*.ts src/**/*.tsx *.js --ignore-path .gitignore --fix",
+    "reset": "node reset-app.js"
   },
   "eslintConfig": {
     "extends": [
