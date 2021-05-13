@@ -74,6 +74,31 @@ const App = (): ReactElement => {
     status: 'error',
   })
 
+  const writeClipboard = (payload: string) => {
+    setIsAlertShow(true)
+    try {
+      navigator.clipboard
+        .writeText(payload)
+        .then(() => {
+          setAlert({
+            message: 'Command copied ! 🚀🚀🚀',
+            status: 'success',
+          })
+        })
+        .catch(() => {
+          setAlert({
+            message: 'Failed to copy, please use modern browser',
+            status: 'error',
+          })
+        })
+    } catch {
+      setAlert({
+        message: 'Failed to copy, please use modern browser',
+        status: 'error',
+      })
+    }
+  }
+
   const copyCloneCommand = () => {
     setIsAlertShow(true)
     try {
@@ -149,9 +174,19 @@ const App = (): ReactElement => {
             {scripts.map((script) => (
               <div className="script__item" key={script.id}>
                 <div className="code-block">
-                  <code>{script.command.yarn}</code>
+                  <code
+                    onClick={() => writeClipboard(script.command.yarn || '')}
+                    aria-hidden="true"
+                  >
+                    {script.command.yarn}
+                  </code>
                   <span>or</span>
-                  <code>{script.command.npm}</code>
+                  <code
+                    onClick={() => writeClipboard(script.command.npm || '')}
+                    aria-hidden="true"
+                  >
+                    {script.command.npm}
+                  </code>
                 </div>
                 <p>{script.description}</p>
               </div>
