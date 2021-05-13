@@ -119,6 +119,17 @@ const App = (): ReactElement => {
           <p>{alert.message}</p>
         </section>
       )}
+      <a
+        className="fork"
+        href="https://github.com/alfianandinugraha/create-react-typescript-app"
+        target="_blank"
+        rel="noreferrer"
+      >
+        <img src="/github-icon.svg" alt="github icon" />
+        <span>
+          Star me on <b>GitHub</b>
+        </span>
+      </a>
       <section className="wrapper">
         <img src="/logo192.png" alt="react icon" className="react-logo" />
         <div className="icon-group">

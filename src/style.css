@@ -73,6 +73,31 @@ h1 {
   padding: 2rem;
 }
 
+.fork {
+  position: fixed;
+  padding: 0.5rem 1rem;
+  top: 0;
+  left: 0;
+  background-color: white;
+  border-radius: 0 0 20px 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.fork img {
+  width: 24px;
+}
+
+.fork span {
+  color: #1a1d22;
+  display: none;
+}
+
+.fork:hover {
+  text-decoration: none !important;
+}
+
 .alert {
   position: fixed;
   top: 1rem;
@@ -253,6 +278,15 @@ h1 {
 }
 
 @media screen and (min-width: 800px) {
+  .fork img {
+    margin-right: 0.5rem;
+  }
+
+  .fork span {
+    display: block;
+    font-size: 14px;
+  }
+
   .installation {
     max-width: 810px;
   }
