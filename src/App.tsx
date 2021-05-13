@@ -73,6 +73,7 @@ const scripts: ScriptProps[] = [
 const App = (): ReactElement => {
   useTitlePage('React Typescript App')
   const [isAlertShow, setIsAlertShow] = useState(false)
+  const [inputProject, setInputProject] = useState('')
   const [cloneCommands, setCloneCommands] = useState<CloneCommandProps[]>([
     {
       id: Math.random().toString(),
@@ -93,6 +94,10 @@ const App = (): ReactElement => {
     message: 'Failed to copy, please use modern browser',
     status: 'error',
   })
+
+  const inputProjectHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setInputProject(e.target.value)
+  }
 
   const writeClipboard = (payload: string) => {
     setIsAlertShow(true)
@@ -237,17 +242,20 @@ const App = (): ReactElement => {
               type="text"
               className="input-project-name"
               placeholder="Project name (optional)"
+              onChange={inputProjectHandler}
             />
-            <div className="radio-group">
-              <label htmlFor="yarn">
-                <input type="radio" id="yarn" name="package" />
-                <span>Yarn</span>
-              </label>
-              <label htmlFor="npm">
-                <input type="radio" id="npm" name="package" />
-                <span>NPM</span>
-              </label>
-            </div>
+            {inputProject && (
+              <div className="radio-group">
+                <label htmlFor="yarn">
+                  <input type="radio" id="yarn" name="package" />
+                  <span>Yarn</span>
+                </label>
+                <label htmlFor="npm">
+                  <input type="radio" id="npm" name="package" />
+                  <span>NPM</span>
+                </label>
+              </div>
+            )}
           </section>
           <section className="code-block">
             <code
