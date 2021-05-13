@@ -115,12 +115,9 @@ h1 {
 }
 
 .installation {
-  padding: 1rem;
-  background-color: #1a1d22;
-  border-radius: 10px;
+  max-width: 250px;
   display: flex;
   flex-direction: column;
-  max-width: 250px;
   margin: 0 auto 2rem auto;
 }
 
@@ -192,6 +189,20 @@ h1 {
     DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif !important;
 }
 
+.installation .code-block {
+  width: 100%;
+}
+
+.installation .code-block code {
+  font-size: 16px;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+  padding: 1rem;
+  box-sizing: border-box;
+  width: 100%;
+}
+
 .code-block code:hover {
   background-color: #66686b;
   transition: 500ms background-color;
@@ -228,6 +239,10 @@ h1 {
 }
 
 @media screen and (min-width: 800px) {
+  .installation {
+    max-width: 810px;
+  }
+
   .contribute {
     margin: 0;
   }
@@ -259,19 +274,5 @@ h1 {
 
   .script__item .code-block {
     justify-content: right;
-  }
-}
-
-@media screen and (min-width: 900px) {
-  .installation {
-    flex-direction: row;
-  }
-
-  .installation code {
-    margin: 0;
-  }
-
-  .installation button {
-    margin-left: 1rem !important;
   }
 }

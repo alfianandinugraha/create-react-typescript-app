@@ -99,31 +99,6 @@ const App = (): ReactElement => {
     }
   }
 
-  const copyCloneCommand = () => {
-    setIsAlertShow(true)
-    try {
-      navigator.clipboard
-        .writeText(CLONE_COMMAND)
-        .then(() => {
-          setAlert({
-            message: 'Command copied ! 🚀🚀🚀',
-            status: 'success',
-          })
-        })
-        .catch(() => {
-          setAlert({
-            message: 'Failed to copy, please use modern browser',
-            status: 'error',
-          })
-        })
-    } catch {
-      setAlert({
-        message: 'Failed to copy, please use modern browser',
-        status: 'error',
-      })
-    }
-  }
-
   useEffect(() => {
     if (!isAlertShow) return
 
@@ -158,15 +133,14 @@ const App = (): ReactElement => {
           App
         </h1>
         <section className="installation">
-          <code>{CLONE_COMMAND}</code>
-          <button type="button" onClick={copyCloneCommand}>
-            <img
-              src="./copy-svgrepo-com.svg"
-              alt="clipboard icon"
-              className="clipboard-icon"
-            />
-            <span>Copy</span>
-          </button>
+          <section className="code-block">
+            <code
+              onClick={() => writeClipboard(CLONE_COMMAND)}
+              aria-hidden="true"
+            >
+              {CLONE_COMMAND}
+            </code>
+          </section>
         </section>
         <section className="scripts">
           <h2>Available Scripts</h2>
