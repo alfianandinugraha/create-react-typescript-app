@@ -74,6 +74,7 @@ const App = (): ReactElement => {
   useTitlePage('React Typescript App')
   const [isAlertShow, setIsAlertShow] = useState(false)
   const [inputProject, setInputProject] = useState('')
+  const [selectPackageManager, setSelectPackageManager] = useState('')
   const [cloneCommands, setCloneCommands] = useState<CloneCommandProps[]>([
     {
       id: Math.random().toString(),
@@ -133,8 +134,22 @@ const App = (): ReactElement => {
     setCloneCommands(newCloneCommands)
   }
 
-  const getActiveCloneCommand = () =>
-    cloneCommands.filter((command) => command.isActive)[0]
+  const getActiveCloneCommand = () => {
+    let result = cloneCommands.filter((command) => command.isActive)[0].command
+
+    if (!inputProject) return result
+
+    result += ` "${inputProject}"`
+
+    if (selectPackageManager === 'yarn') {
+      result += ` && cd "${inputProject}" && yarn install && yarn run start`
+    }
+
+    if (selectPackageManager === 'npm') {
+      result += ` && cd "${inputProject}" && npm install && npm run start`
+    }
+    return result
+  }
 
   useEffect(() => {
     if (!isAlertShow) return
@@ -246,11 +261,19 @@ const App = (): ReactElement => {
             />
             {inputProject && (
               <div className="radio-group">
-                <label htmlFor="yarn">
+                <label
+                  htmlFor="yarn"
+                  onClick={() => setSelectPackageManager('yarn')}
+                  aria-hidden="true"
+                >
                   <input type="radio" id="yarn" name="package" />
                   <span>Yarn</span>
                 </label>
-                <label htmlFor="npm">
+                <label
+                  htmlFor="npm"
+                  onClick={() => setSelectPackageManager('npm')}
+                  aria-hidden="true"
+                >
                   <input type="radio" id="npm" name="package" />
                   <span>NPM</span>
                 </label>
@@ -259,10 +282,10 @@ const App = (): ReactElement => {
           </section>
           <section className="code-block">
             <code
-              onClick={() => writeClipboard(getActiveCloneCommand().command)}
+              onClick={() => writeClipboard(getActiveCloneCommand())}
               aria-hidden="true"
             >
-              {getActiveCloneCommand().command}
+              {getActiveCloneCommand()}
             </code>
           </section>
         </section>
