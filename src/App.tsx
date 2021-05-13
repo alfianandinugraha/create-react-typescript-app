@@ -73,6 +73,7 @@ const scripts: ScriptProps[] = [
 const App = (): ReactElement => {
   useTitlePage('React Typescript App')
   const [isAlertShow, setIsAlertShow] = useState(false)
+  const [isInputProjectShow, setIsInputProjectShow] = useState(false)
   const [inputProject, setInputProject] = useState('')
   const [cloneCommands, setCloneCommands] = useState<CloneCommandProps[]>([
     {
@@ -138,7 +139,9 @@ const App = (): ReactElement => {
 
     if (!inputProject) return result
 
-    result += ` "${inputProject}"`
+    if (isInputProjectShow) {
+      result += ` "${inputProject}"`
+    }
 
     return result
   }
@@ -244,14 +247,24 @@ const App = (): ReactElement => {
               </span>
             ))}
           </section>
-          <section className="input-project">
-            <input
-              type="text"
-              className="input-project-name"
-              placeholder="Project name (optional)"
-              onChange={inputProjectHandler}
-            />
+          <section
+            className="toggle-input"
+            onClick={() => setIsInputProjectShow(!isInputProjectShow)}
+            aria-hidden="true"
+          >
+            {!isInputProjectShow ? 'Show ' : 'Close '}Custom Project Name
           </section>
+          {isInputProjectShow && (
+            <section className="input-project">
+              <input
+                type="text"
+                className="input-project-name"
+                placeholder="Project / folder name (optional)"
+                onChange={inputProjectHandler}
+                value={inputProject}
+              />
+            </section>
+          )}
           <section className="code-block">
             <code
               onClick={() => writeClipboard(getActiveCloneCommand())}
