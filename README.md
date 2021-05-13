@@ -63,6 +63,12 @@ Fix all error because eslint, this eslint extends the config from [Eslint Airbnb
 
 See the section about [Eslint CLI](https://eslint.org/docs/user-guide/command-line-interface) for more information
 
+### `yarn reset` or `npm run reset`
+
+This boilerplate has landing page and this command is used to delete all files, folders, and code which related to landing page. Rather than delete manualy, just type this command and the landing page will be removed.
+
+To undo this command, type `git checkout -- src/` to rollback to older src folder
+
 ### ~~`yarn eject`~~ or ~~`npm run eject`~~
 
 **Warning !** don't eject the app, because cannot be undone. Please use [react-app-rewired](https://www.npmjs.com/package/react-app-rewired) for control behavior of Create React App
