@@ -8,6 +8,61 @@ interface AlertProps {
   status: 'success' | 'error'
 }
 
+interface ScriptProps {
+  command: {
+    yarn?: string
+    npm?: string
+  }
+  description: string
+  id: string
+}
+
+const scripts: ScriptProps[] = [
+  {
+    command: {
+      yarn: 'yarn start',
+      npm: 'npm run start',
+    },
+    description:
+      'Start the app and open http://localhost:3000 to view it in the browser.',
+    id: Math.random().toString(),
+  },
+  {
+    command: {
+      yarn: 'yarn test',
+      npm: 'npm run test',
+    },
+    description: 'Launches the test runner in the interactive watch mode.',
+    id: Math.random().toString(),
+  },
+  {
+    command: {
+      yarn: 'yarn build',
+      npm: 'npm run build',
+    },
+    description:
+      'It correctly bundles React in production mode and optimizes the build for the best performance.',
+    id: Math.random().toString(),
+  },
+  {
+    command: {
+      yarn: 'yarn lint',
+      npm: 'npm run lint',
+    },
+    description: 'Fix all error because ESlint.',
+    id: Math.random().toString(),
+  },
+  {
+    command: {
+      yarn: 'yarn reset',
+      npm: 'npm run reset',
+    },
+    description:
+      'Delete all files, folders, and code which related to landing page.',
+    id: Math.random().toString(),
+  },
+]
+
 const CLONE_COMMAND =
   'git clone https://github.com/alfianandinugraha/create-react-typescript-app.git'
 
@@ -87,6 +142,21 @@ const App = (): ReactElement => {
             />
             <span>Copy</span>
           </button>
+        </section>
+        <section className="scripts">
+          <h2>Available Scripts</h2>
+          <section className="scripts__wrapper">
+            {scripts.map((script) => (
+              <div className="script__item" key={script.id}>
+                <div className="code-block">
+                  <code>{script.command.yarn}</code>
+                  <span>or</span>
+                  <code>{script.command.npm}</code>
+                </div>
+                <p>{script.description}</p>
+              </div>
+            ))}
+          </section>
         </section>
         <Ecosystem />
         <section className="contribute">
