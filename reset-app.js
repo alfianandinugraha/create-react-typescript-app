@@ -24,6 +24,10 @@ const deleteUnusedFiles = () => {
     `${__dirname}/src/App.test.tsx`,
     `${__dirname}/src/components/Ecosystem.tsx`,
     `${__dirname}/src/hooks/useTitlePage.ts`,
+    `${__dirname}/public/eslint.svg`,
+    `${__dirname}/public/typescript.svg`,
+    `${__dirname}/public/prettier.png`,
+    `${__dirname}/public/github-icon.svg`,
   ]
 
   try {
