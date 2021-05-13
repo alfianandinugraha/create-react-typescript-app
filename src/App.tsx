@@ -97,7 +97,7 @@ const App = (): ReactElement => {
   })
 
   const inputProjectHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setInputProject(e.target.value)
+    setInputProject(e.target.value.replace(' ', '-'))
   }
 
   const writeClipboard = (payload: string) => {
