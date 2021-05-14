@@ -1,4 +1,4 @@
-![alt text](https://res.cloudinary.com/alfianandidev/image/upload/create-react-typescript-app.gif 'Create React Typescript App - starter screen')
+<img src="https://res.cloudinary.com/alfianandidev/image/upload/create-react-typescript-app-cover.svg" alt="Create React Typescript App - starter screen" width="600"/>
 
 # Create React Typescript App 🚀
 
