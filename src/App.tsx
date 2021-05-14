@@ -206,17 +206,17 @@ const App = (): ReactElement => {
         target="_blank"
         rel="noreferrer"
       >
-        <img src="/github-icon.svg" alt="github icon" />
+        <img src="./github-icon.svg" alt="github icon" />
         <span>
           Star me on <b>GitHub</b>
         </span>
       </a>
       <section className="wrapper">
-        <img src="/logo192.png" alt="react icon" className="react-logo" />
+        <img src="./logo192.png" alt="react icon" className="react-logo" />
         <div className="icon-group">
-          <img src="/typescript.svg" alt="typescipt icon" />
-          <img src="/eslint.svg" alt="eslint icon" />
-          <img src="/prettier.png" alt="prettier icon" />
+          <img src="./typescript.svg" alt="typescipt icon" />
+          <img src="./eslint.svg" alt="eslint icon" />
+          <img src="./prettier.png" alt="prettier icon" />
         </div>
         <h1 className="heading" data-testid="title">
           Create React{' '}
