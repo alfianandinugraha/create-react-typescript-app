@@ -75,6 +75,7 @@ const App = (): ReactElement => {
   const [isAlertShow, setIsAlertShow] = useState(false)
   const [isInputProjectShow, setIsInputProjectShow] = useState(false)
   const [inputProject, setInputProject] = useState('')
+  const [isAutoInstallEnable, setIsAutoInstallEnable] = useState(false)
   const [cloneCommands, setCloneCommands] = useState<CloneCommandProps[]>([
     {
       id: Math.random().toString(),
@@ -146,6 +147,16 @@ const App = (): ReactElement => {
     return result
   }
 
+  const yarnAutoInstallCommand = () =>
+    `${getActiveCloneCommand()} && yarn install --cwd "${
+      inputProject || 'create-react-typescript-app'
+    }"`
+
+  const npmAutoInstallCommand = () =>
+    `${getActiveCloneCommand()} && cd "${
+      inputProject || 'create-react-typescript-app'
+    }" && npm install && cd ".."`
+
   useEffect(() => {
     if (!isAlertShow) return
 
@@ -158,6 +169,29 @@ const App = (): ReactElement => {
       clearInterval(interval)
     }
   }, [isAlertShow])
+
+  const AutoInstallCommandComponent = () => (
+    <section className="code-group">
+      <section className="code-block">
+        <p>Yarn</p>
+        <code
+          onClick={() => writeClipboard(yarnAutoInstallCommand())}
+          aria-hidden="true"
+        >
+          {yarnAutoInstallCommand()}
+        </code>
+      </section>
+      <section className="code-block">
+        <p>NPM</p>
+        <code
+          onClick={() => writeClipboard(npmAutoInstallCommand())}
+          aria-hidden="true"
+        >
+          {npmAutoInstallCommand()}
+        </code>
+      </section>
+    </section>
+  )
 
   return (
     <main className="container">
@@ -263,16 +297,35 @@ const App = (): ReactElement => {
                 onChange={inputProjectHandler}
                 value={inputProject}
               />
+              <label
+                htmlFor="auto-install-checkbox"
+                className="checkbox"
+                aria-hidden="true"
+              >
+                <input
+                  type="checkbox"
+                  id="auto-install-checkbox"
+                  checked={isAutoInstallEnable}
+                  onChange={() => {
+                    setIsAutoInstallEnable(!isAutoInstallEnable)
+                  }}
+                />
+                <span>Auto install package</span>
+              </label>
             </section>
           )}
-          <section className="code-block">
-            <code
-              onClick={() => writeClipboard(getActiveCloneCommand())}
-              aria-hidden="true"
-            >
-              {getActiveCloneCommand()}
-            </code>
-          </section>
+          {isAutoInstallEnable && isInputProjectShow ? (
+            <AutoInstallCommandComponent />
+          ) : (
+            <section className="code-block">
+              <code
+                onClick={() => writeClipboard(getActiveCloneCommand())}
+                aria-hidden="true"
+              >
+                {getActiveCloneCommand()}
+              </code>
+            </section>
+          )}
         </section>
         <section className="scripts">
           <h2>Available Scripts</h2>
