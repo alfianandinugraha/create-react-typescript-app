@@ -87,8 +87,12 @@ Free hosting for deploy your static site or single page application
 
 ## 🧱 Contribute
 
-Please visit [Create React Typescript App](https://github.com/alfianandinugraha/create-react-typescript-app)
+You can follow the contributing guide listed [here](./CONTRIBUTING.md)
+
+## 📜 License
+
+create-react-typescript-app is under [MIT License](./LICENSE).
 
 ---
 
-📃 visit [Create React App](https://github.com/facebook/create-react-app) for another information
+📃 Visit [Official Create React App Template](https://github.com/facebook/create-react-app) for another information
