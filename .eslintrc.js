@@ -17,6 +17,14 @@ const config = {
     'plugin:prettier/recommended',
     'prettier/react',
   ],
+  overrides: [
+    {
+      files: ['*.ts', '*.tsx', '*/**.ts'],
+      parserOptions: {
+        project: ['./tsconfig.json'],
+      },
+    },
+  ],
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
