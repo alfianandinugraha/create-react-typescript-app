@@ -27,6 +27,7 @@ const deleteUnusedFiles = () => {
     `${__dirname}/src/images/eslint.svg`,
     `${__dirname}/src/images/typescript.svg`,
     `${__dirname}/src/images/prettier.png`,
+    `${__dirname}/src/images/logo192.png`,
     `${__dirname}/src/images/github-icon.svg`,
   ]
 
