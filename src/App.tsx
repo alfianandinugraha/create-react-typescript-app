@@ -1,6 +1,11 @@
 import React, { ReactElement, useEffect, useState } from 'react'
 import useTitlePage from '@/hooks/useTitlePage'
 import Ecosystem from '@/components/Ecosystem'
+import Logo192 from '@/images/logo192.png'
+import GithubIcon from '@/images/github-icon.svg'
+import PrettierIcon from '@/images/prettier.png'
+import TypescriptIcon from '@/images/typescript.svg'
+import EslinIcon from '@/images/eslint.svg'
 import '@/style.css'
 
 interface AlertProps {
@@ -206,17 +211,17 @@ const App = (): ReactElement => {
         target="_blank"
         rel="noreferrer"
       >
-        <img src="./github-icon.svg" alt="github icon" />
+        <img src={GithubIcon} alt="github icon" />
         <span>
           Star me on <b>GitHub</b>
         </span>
       </a>
       <section className="wrapper">
-        <img src="./logo192.png" alt="react icon" className="react-logo" />
+        <img src={Logo192} alt="react icon" className="react-logo" />
         <div className="icon-group">
-          <img src="./typescript.svg" alt="typescipt icon" />
-          <img src="./eslint.svg" alt="eslint icon" />
-          <img src="./prettier.png" alt="prettier icon" />
+          <img src={TypescriptIcon} alt="typescipt icon" />
+          <img src={EslinIcon} alt="eslint icon" />
+          <img src={PrettierIcon} alt="prettier icon" />
         </div>
         <h1 className="heading" data-testid="title">
           Create React{' '}
